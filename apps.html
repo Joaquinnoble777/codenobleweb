@@ -5,78 +5,115 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mis Aplicaciones</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #f8f9fa;
     }
 
-    /* Hero */
+    /* Hero moderno */
     .hero {
-      background: linear-gradient(90deg, #0d6efd, #6610f2);
+      background: linear-gradient(135deg, #0d6efd, #6610f2);
       color: white;
-      padding: 80px 0;
+      padding: 100px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
     .hero h1 {
       font-size: 3rem;
-      font-weight: bold;
+      font-weight: 900;
+      margin-bottom: 15px;
     }
     .hero p {
       font-size: 1.2rem;
-      margin-top: 15px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 800px;
+      height: 800px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      top: -200px;
+      right: -200px;
+      transform: rotate(45deg);
     }
 
-    /* Cards */
+    /* Sección apps */
     .apps .card {
       border: none;
-      border-radius: 15px;
+      border-radius: 20px;
       overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-      background-color: white;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
       display: flex;
       flex-direction: column;
+      background-color: white;
       height: 100%;
     }
     .apps .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      transform: translateY(-15px) scale(1.03);
+      box-shadow: 0 25px 45px rgba(0,0,0,0.18);
     }
-
-    .card img {
+    .apps .card img {
       width: 100%;
-      max-height: 250px; /* altura uniforme */
-      object-fit: contain; /* que se vea completa */
-      background-color: #f0f0f0; /* fondo para bordes si la imagen no ocupa todo */
+      max-height: 250px;
+      object-fit: cover;
+      background-color: #f0f0f0;
       display: block;
+      transition: transform 0.35s ease;
     }
-
+    .apps .card:hover img {
+      transform: scale(1.05);
+    }
     .card-body {
       flex-grow: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      padding: 20px;
     }
-
     .card-body h3 {
-      font-weight: bold;
-      margin-top: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      font-size: 1.4rem;
     }
     .card-body p {
       color: #555;
-      margin-bottom: 15px;
       flex-grow: 1;
+      margin-bottom: 15px;
+      font-size: 0.95rem;
+      line-height: 1.4rem;
     }
     .btn-demo {
       border-radius: 50px;
-      padding: 10px 20px;
-      font-weight: bold;
+      padding: 10px 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .btn-demo:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(13, 110, 253, 0.35);
     }
 
     /* Responsive spacing */
-    @media (max-width: 768px) {
+    @media (max-width: 992px) {
       .card img {
-        max-height: 200px;
+        max-height: 220px;
+      }
+    }
+    @media (max-width: 576px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero p {
+        font-size: 1rem;
       }
     }
   </style>
@@ -87,14 +124,14 @@
 <section class="hero">
   <div class="container">
     <h1>Mis Aplicaciones</h1>
-    <p>Soluciones digitales creadas para negocios y uso personal en Uruguay.</p>
+    <p>Soluciones digitales modernas y funcionales creadas para negocios y uso personal en Uruguay.</p>
   </div>
 </section>
 
 <!-- Sección de Apps -->
 <section class="apps py-5">
   <div class="container">
-    <div class="row g-4">
+    <div class="row g-4 justify-content-center">
 
       <!-- Empanadas Caseras -->
       <div class="col-md-6 col-lg-4">
@@ -103,7 +140,7 @@
           <div class="card-body text-center">
             <h3>Empanadas Caseras</h3>
             <p>Tradición familiar con más de 20 años de historia. Ingredientes frescos, masa casera y mucho relleno.</p>
-            <a href="#" class="btn btn-outline-primary btn-demo">Ver demo</a>
+            <a href="https://apppedirempanadas.netlify.app/" target="_blank" class="btn btn-outline-primary btn-demo"><i class="fas fa-eye me-2"></i>Ver demo</a>
           </div>
         </div>
       </div>
@@ -115,7 +152,7 @@
           <div class="card-body text-center">
             <h3>Gestión Simple</h3>
             <p>Control de Compras, Ventas, Clientes y Ganancias utilizando localStorage. Dashboard simple y rápido.</p>
-            <a href="#" class="btn btn-outline-primary btn-demo">Ver demo</a>
+            <a href="https://appgestiondeclientes.netlify.app/" target="_blank" class="btn btn-outline-primary btn-demo"><i class="fas fa-eye me-2"></i>Ver demo</a>
           </div>
         </div>
       </div>
@@ -127,7 +164,7 @@
           <div class="card-body text-center">
             <h3>Inventario & Ventas PRO</h3>
             <p>Administra productos, clientes y ventas. Reportes claros y configuración inicial rápida.</p>
-            <a href="#" class="btn btn-outline-primary btn-demo">Ver demo</a>
+            <a href="https://miinventariodeventas.netlify.app/" target="_blank" class="btn btn-outline-primary btn-demo"><i class="fas fa-eye me-2"></i>Ver demo</a>
           </div>
         </div>
       </div>
@@ -135,11 +172,11 @@
       <!-- Billetera Digital -->
       <div class="col-md-6 col-lg-4">
         <div class="card">
-          <img src="/apps/billetera virtual .png" alt="Billetera Digital">
+          <img src="apps/billetera virtual .png" alt="Billetera Digital">
           <div class="card-body text-center">
             <h3>Billetera Digital</h3>
             <p>Controla tus ingresos y gastos con categorías, historial de movimientos y resumen visual de tu dinero.</p>
-            <a href="#" class="btn btn-outline-primary btn-demo">Ver demo</a>
+            <a href="https://controldebilleteravirtual.netlify.app/" target="_blank" class="btn btn-outline-primary btn-demo"><i class="fas fa-eye me-2"></i>Ver demo</a>
           </div>
         </div>
       </div>
@@ -151,7 +188,7 @@
           <div class="card-body text-center">
             <h3>Gestión de Invitados</h3>
             <p>Agregá invitados, generá códigos QR y gestioná la asistencia fácilmente con nuestra app.</p>
-            <a href="#" class="btn btn-outline-primary btn-demo">Ver demo</a>
+            <a href="https://generarqrapp.netlify.app/" target="_blank" class="btn btn-outline-primary btn-demo"><i class="fas fa-eye me-2"></i>Ver demo</a>
           </div>
         </div>
       </div>
@@ -163,4 +200,3 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-

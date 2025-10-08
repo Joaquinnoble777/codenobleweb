@@ -24,7 +24,31 @@ html {
   transition: all 0.3s ease-in-out;
 }
 
-
+<style>
+  /* Cards de planes */
+  .plan-card {
+    border-radius: 20px;
+    transition: transform 0.35s, box-shadow 0.35s;
+  }
+  .plan-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  }
+  .featured-plan {
+    background: #e9f5ff;
+    border-color: #0d6efd !important;
+  }
+  .btn-plan {
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  .btn-plan:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(13,110,253,0.35);
+  }
+</style>
 
 .whatsapp-float {
   position: fixed;
